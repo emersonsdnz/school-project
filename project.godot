@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Zippy"
-run/main_scene="res://src/actors/Player.tscn"
+run/main_scene="res://src/screens/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [input]
@@ -54,4 +54,5 @@ move_right={
 
 [rendering]
 
+environment/default_clear_color=Color( 0.329412, 0.427451, 0.580392, 1 )
 environment/default_environment="res://default_env.tres"
