@@ -1,23 +1,32 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://assets/enemy.png" type="Texture" id=1]
+[ext_resource path="res://assets/slime/Slime2.png" type="Texture" id=1]
 [ext_resource path="res://src/actors/Enemy.gd" type="Script" id=2]
+[ext_resource path="res://assets/slime/Slime1.png" type="Texture" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 28.187, 9.18758 )
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 8, 4.12371 )
+extents = Vector2( 57.0233, 9.18758 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 16.988, 6.26013 )
 
 [node name="Enemy" type="KinematicBody2D"]
 collision_layer = 2
 collision_mask = 9
 script = ExtResource( 2 )
 
-[node name="enemy" type="Sprite" parent="."]
-position = Vector2( -9.53674e-07, -2.13839 )
-scale = Vector2( 0.148148, 0.126056 )
-texture = ExtResource( 1 )
+[node name="enemy" type="AnimatedSprite" parent="."]
+position = Vector2( 1.92938, -8.88617 )
+scale = Vector2( 0.604184, 0.514088 )
+frames = SubResource( 1 )
 
 [node name="StompDetector" type="Area2D" parent="."]
 modulate = Color( 0.113725, 0.0156863, 0.976471, 1 )
@@ -26,19 +35,19 @@ scale = Vector2( 0.27348, 0.239817 )
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StompDetector"]
-position = Vector2( 1.71661e-05, -22.1425 )
-shape = SubResource( 1 )
+position = Vector2( 6.92865, -16.8672 )
+shape = SubResource( 2 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
-position = Vector2( -5.24521e-06, -1.52921 )
-scale = Vector2( 0.146841, 0.115888 )
+position = Vector2( 2.30147, 1.48803 )
+scale = Vector2( 0.322691, 0.117746 )
 rect = Rect2( -50, -45, 100, 90 )
 process_parent = true
 physics_process_parent = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -9.53674e-07, -0.460574 )
-shape = SubResource( 2 )
+position = Vector2( 2.07828, 0.784634 )
+shape = SubResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }

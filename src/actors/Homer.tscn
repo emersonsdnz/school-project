@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6.24049, 13.5845 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 7.39727, 11.3547 )
+
+[node name="Homer" type="KinematicBody2D"]
+collision_mask = 8
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.912891, -0.942194 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="EnemyDedtector" type="Area2D" parent="."]
+modulate = Color( 0.14902, 0, 1, 1 )
+position = Vector2( 8.07841, 3.04596 )
+monitorable = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDedtector"]
+position = Vector2( -8.81023, -4.13681 )
+shape = SubResource( 2 )
+[connection signal="area_entered" from="EnemyDedtector" to="." method="_on_EnemyDedtector_area_entered"]
+[connection signal="body_entered" from="EnemyDedtector" to="." method="_on_EnemyDedtector_body_entered"]
